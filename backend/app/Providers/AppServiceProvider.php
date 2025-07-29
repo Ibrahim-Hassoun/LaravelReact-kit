@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\ChatbotServices;
 use Illuminate\Support\ServiceProvider;
 use App\Services\AuthServices;
 
@@ -14,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(AuthServices::class, function ($app) {
         return new AuthServices();
+        });
+        $this->app->singleton(ChatbotServices::class, function ($app) {
+        return new ChatbotServices();
         });
     }
 

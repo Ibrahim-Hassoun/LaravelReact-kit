@@ -15,3 +15,7 @@ Route::middleware('authenticated')->group(function () {
 });
 
 });
+
+Route::group(['middleware' => 'authenticated'], function () {
+    Route::post('/sendMessage', [\App\Http\Controllers\ChatbotController::class, 'sendMessage']);
+});

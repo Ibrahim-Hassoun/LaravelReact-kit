@@ -25,24 +25,5 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     
 ->withExceptions(function (Exceptions $exceptions) {
-    $exceptions->renderable(function (AuthenticationException $e, $request) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Unauthenticated. Token missing or invalid.',
-        ], 401);
-    });
-
-    $exceptions->renderable(function (TokenInvalidException $e, $request) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Token is invalid.',
-        ], 401);
-    });
-
-    $exceptions->renderable(function (TokenExpiredException $e, $request) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Token has expired.',
-        ], 401);
-    });
+//
 })->create();
